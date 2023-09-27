@@ -11,3 +11,7 @@ ul > li {
     font-size: 18px;
     font-weight: 600;
 }
+
+.instagram{
+    background-image: linear-gradient(150deg, #774ADF 3.9%, #9748BE 14.95%, #BD4697 30.43%, #D8447A 44.65%, #E94369 57%, #EF4363 66.1%, #EF545E 72.21%, #F08053 84.3%, #F2C141 100%);;
+}
