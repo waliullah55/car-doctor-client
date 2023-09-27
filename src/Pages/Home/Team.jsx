@@ -22,7 +22,7 @@ const Team = () => {
             <SectionTitle subTitle={'Team'} title={'Meet Our Team'}
                 decs={'the majority have suffered alteration in some form, by injected humour, or randomised words which do not look even slightly believable. '}
             ></SectionTitle>
-            <div className="grid grid-cols-1 md:grid-cols-3">
+            <div className="grid grid-cols-1 md:grid-cols-3 relative">
                 {
                     teamm.map(t => <div key={t.id} className="card w-96 bg-base-100 shadow-xl">
                         <figure className="px-5 pt-5">
@@ -40,6 +40,10 @@ const Team = () => {
                         </div>
                     </div>)
                 }
+                <div className="absolute flex justify-between transform -translate-y-1/2 -left-3 right-5 top-1/2">
+                    <a href="#slide4" className="btn btn-circle bg-[#84808098] text-white hover:text-black">❮</a>
+                    <a href="#slide2" className="btn btn-circle bg-[#ff3811] text-white hover:text-black ml-5">❯</a>
+                </div>
             </div>
         </div>
     );
