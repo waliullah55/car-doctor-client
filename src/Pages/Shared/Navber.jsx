@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Link } from 'react-router-dom';
 import { CiSearch } from "react-icons/ci";
 import logo from '../../assets/logo.svg';
@@ -10,6 +10,7 @@ const Navber = () => {
         <li><Link>Services</Link></li>
         <li><Link>Blog</Link></li>
         <li><Link>Contact</Link></li>
+        {/* <li><Link>Login</Link></li> */}
     </>
     return (
         <div className="navbar bg-base-100 font-[]" >
