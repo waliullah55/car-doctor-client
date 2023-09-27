@@ -2,15 +2,26 @@
 import { Link } from 'react-router-dom';
 import { CiSearch } from "react-icons/ci";
 import logo from '../../assets/logo.svg';
+import { useContext } from 'react';
+import { AuthContext } from '../../Providers/AuthProvider';
 
 const Navber = () => {
+    const {user, logOut} = useContext(AuthContext);
+    const hadleLogout = () => {
+        logOut()
+        .then( () => { })
+        .catch(err => console.error(err))
+    }
     const navOptions = <>
         <li><Link>Home</Link></li>
         <li><Link>About</Link></li>
         <li><Link>Services</Link></li>
         <li><Link>Blog</Link></li>
         <li><Link>Contact</Link></li>
-        {/* <li><Link>Login</Link></li> */}
+        {
+            user? <li><Link onClick={hadleLogout}>Log out</Link></li> : 
+            <li><Link to={'/login'}>Login</Link></li>
+        }
     </>
     return (
         <div className="navbar bg-base-100 font-[]" >
