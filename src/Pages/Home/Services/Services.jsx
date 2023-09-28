@@ -7,7 +7,7 @@ import { BiRightArrowAlt } from 'react-icons/bi';
 const Services = () => {
     const [services, setServices] = useState([]);
     useEffect(() => {
-        fetch('service.json')
+        fetch('http://localhost:5000/services')
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -30,7 +30,7 @@ const Services = () => {
                     <h2 className="card-title text-[#444] text-2xl font-bold">{service.title}</h2>
                     <div className="flex items-center text-xl font-semibold text-[#ff3811]">
                         <p> Price: $ {service.price}</p>
-                        <Link to={""}  className='text-2xl border border-[#e4e3e3] rounded-full p-2'><BiRightArrowAlt/></Link>
+                        <Link to={`serviceDetails/${service._id}`}  className='text-2xl border border-[#e4e3e3] rounded-full p-2'><BiRightArrowAlt/></Link>
                     </div>
                 </div>
             </div>)

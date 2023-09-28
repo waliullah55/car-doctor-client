@@ -10,7 +10,7 @@ import back from '../../assets/icons/socials/Group.svg';
 const Team = () => {
     const [teamm, setTeamm] = useState([]);
     useEffect(() => {
-        fetch('team.json')
+        fetch('http://localhost:5000/team')
             .then(res => res.json())
             .then(data => {
                 console.log(data);
