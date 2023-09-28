@@ -6,6 +6,7 @@ import SignUp from "../Pages/Shared/SingUp";
 import Login from "../Pages/Shared/Login";
 import ServiceDetails from "../Pages/ServiceDetails/ServiceDetails";
 import Checkout from "../Pages/Checkout/Checkout";
+import AddService from "../Pages/AddService/AddService";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: '/checkout',
         element: <Checkout />
+      },
+      {
+        path: '/addService',
+        element: <AddService></AddService>
       }
     ]
   },
