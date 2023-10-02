@@ -19,8 +19,11 @@ const Navber = () => {
         <li><Link>Blog</Link></li>
         <li><Link>Contact</Link></li>
         {
-            user? <li><Link onClick={hadleLogout}>Log out</Link></li> : 
-            <li><Link to={'/login'}>Login</Link></li>
+            user? <>
+            <li><Link to={'/bookings'}>My Bookings</Link></li>
+            <li><Link onClick={hadleLogout}>Log out</Link></li>
+            </>
+             : <li><Link to={'/login'}>Login</Link></li>
         }
     </>
     return (

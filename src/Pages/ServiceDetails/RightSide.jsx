@@ -1,6 +1,7 @@
 import { BiRightArrowAlt } from "react-icons/bi";
 import memory from '../../assets/images/memory.svg';
 import imgSide from '../../assets/images/sideImg.svg';
+import { Link } from "react-router-dom";
 
 
 const RightSide = ({ loadedData }) => {
@@ -52,7 +53,7 @@ const RightSide = ({ loadedData }) => {
                 <button className="rounded-xl absolute bottom-3 left-[125px] text-lg font-semibold text-white bg-[#ff3811] border-[#ff3811] py-4  block px-8">Get A Quote</button>
             </div>
             <h2 className="text-[#151515] text-4xl font-bold">Price ${price}</h2>
-            <button className="btn btn-primary py-4 w-full  text-white bg-[#ff3811] border-[#ff3811]">Proceed Checkout</button>
+            <Link to={'/checkout'} className="btn btn-primary py-4 w-full  text-white bg-[#ff3811] border-[#ff3811]">Proceed Checkout</Link>
         </div>
     );
 };

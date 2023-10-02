@@ -4,42 +4,76 @@ import Home from "../Pages/Home/Home/Home";
 import ErrorPages from "../Pages/Shared/ErrorPages";
 import SignUp from "../Pages/Shared/SingUp";
 import Login from "../Pages/Shared/Login";
-import ServiceDetails from "../Pages/ServiceDetails/ServiceDetails";
+// import ServiceDetails from "../Pages/ServiceDetails/ServiceDetails";
 import Checkout from "../Pages/Checkout/Checkout";
 import AddService from "../Pages/AddService/AddService";
+import PrivateRouter from "./PrivateRouter";
+import BookingService from "../Pages/BookingService/BookingService";
+import Bookings from "../Pages/Bookings/Bookings";
+import Products from "../Pages/Home/Products/Products";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Main/>,
-    errorElement: <ErrorPages/>,
+    element: <Main />,
+    errorElement: <ErrorPages />,
     children: [
       {
-        path: '/',
-        element: <Home />
+        path: "/",
+        element: <Home />,
       },
       {
-        path: '/login',
-        element: <Login />
+        path: "/login",
+        element: <Login />,
       },
       {
-        path: '/signup',
-        element: <SignUp />
+        path: "/signup",
+        element: <SignUp />,
+      },
+      // {
+      //   path: '/serviceDetails/:id',
+      //   element: <PrivateRouter> <ServiceDetails></ServiceDetails></PrivateRouter>,
+      //   loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
+      // },
+      {
+        path: "/book/:id",
+        element: (
+          <PrivateRouter>
+            <BookingService></BookingService>{" "}
+          </PrivateRouter>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/services/${params.id}`),
       },
       {
-        path: '/serviceDetails/:id',
-        element: <ServiceDetails></ServiceDetails>,
-        loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
+        path: "/checkout",
+        element: (
+          <PrivateRouter>
+            <Checkout />
+          </PrivateRouter>
+        ),
       },
       {
-        path: '/checkout',
-        element: <Checkout />
+        path: "/addService",
+        element: (
+          <PrivateRouter>
+            <AddService></AddService>
+          </PrivateRouter>
+        ),
       },
       {
-        path: '/addService',
-        element: <AddService></AddService>
+        path: "/bookings",
+        element: (
+          <PrivateRouter>
+            <Bookings />
+          </PrivateRouter>
+        ),
+      },
+      {
+        path: '/products',
+        element: <Products></Products>
       }
-    ]
+    ],
   },
 ]);
 

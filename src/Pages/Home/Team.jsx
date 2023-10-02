@@ -13,7 +13,7 @@ const Team = () => {
         fetch('http://localhost:5000/team')
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 setTeamm(data);
             })
     }, [])
