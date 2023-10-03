@@ -3,20 +3,33 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import BookingRow from "./BookingRow";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
+import { useNavigate } from "react-router-dom";
 
 const Bookings = () => {
   const { user } = useContext(AuthContext);
   const [bookings, setBookings] = useState([]);
+  const navigate = useNavigate();
 
   const uri = `http://localhost:5000/checkouts?email=${user?.email}`;
   useEffect(() => {
-    fetch(uri)
+    fetch(uri, {
+      method: "GET",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("car-access-token")}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        setBookings(data);
+        if (!data.error) {
+          setBookings(data);
+        } else {
+          // logout and then logout
+          navigate("/");
+        }
       });
-  }, [uri]);
+  }, [uri, navigate]);
 
   const handleDelete = (id) => {
     const proceed = confirm("want to delete");
@@ -67,6 +80,9 @@ const Bookings = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Car Doctor | Bookings</title>
+      </Helmet>
       {/* <CoverTitle page={"Cart Details"} title={"Cart Details"}></CoverTitle> */}
       <h2>Bokking Quantity: {bookings.length}</h2>
       <div className="overflow-x-auto">

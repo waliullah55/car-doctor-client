@@ -7,9 +7,12 @@ import { AuthContext } from '../../Providers/AuthProvider';
 
 const Navber = () => {
     const {user, logOut} = useContext(AuthContext);
+    // console.log(user);
     const hadleLogout = () => {
         logOut()
-        .then( () => { })
+        .then( () => { 
+            localStorage.removeItem('car-access-token')
+        })
         .catch(err => console.error(err))
     }
     const navOptions = <>

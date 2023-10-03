@@ -85,7 +85,7 @@ const BookingService = () => {
           {/* <textarea
             placeholder="Message Here"
             name="message"
-            className="textarea  textarea-lg w-full h-4 mb-6"
+            className="textarea  textarea-lg w-full h-64 mb-6"
           ></textarea> */}
           <button className="w-full py-4 rounded-xl text-xl font-semibold text-white bg-[#ff3811] border-[#ff3811]">
             Order Confirm
