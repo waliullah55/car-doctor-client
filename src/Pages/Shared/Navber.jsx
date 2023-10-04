@@ -28,6 +28,9 @@ const Navber = () => {
             </>
              : <li><Link to={'/login'}>Login</Link></li>
         }
+             {user &&
+               <img className='w-12 h-12 rounded-full ml-2 border-2 border-slate-100 p-1'title={user?.displayName} src={user?.photoURL} />
+             }
     </>
     return (
         <div className="navbar bg-base-100 font-[]" >
